@@ -1,0 +1,9 @@
+{
+  "name": "Node.js",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "forwardPorts": [3000, 5000],
+
+  "features": {
+    "ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
+  }
+}
