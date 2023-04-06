@@ -16,8 +16,9 @@ function App() {
     variables: { page, pageSize, artistName, genreName, minPrice, maxPrice },
     skip: true,
   });
-
+  console.log(tracks);
   const handleSearch = async () => {
+    console.log(123);
     setPage(1);
     const result = await refetch();
     setTracks(result?.data?.getTracks);
@@ -25,7 +26,14 @@ function App() {
 
   const fetchMoreData = () => {
     const nextPage = page + 1;
-    const variables = { page: nextPage, pageSize, artistName, genreName, minPrice, maxPrice };
+    const variables = {
+      page: nextPage,
+      pageSize,
+      artistName,
+      genreName,
+      minPrice,
+      maxPrice,
+    };
     fetchMore({
       variables,
       updateQuery: (prev, { fetchMoreResult }) => {
@@ -64,15 +72,27 @@ function App() {
         </label>
         <label>
           Min Price:
-          <input type="number" value={minPrice} onChange={(e) => setMinPrice(parseFloat(e.target.value))} />
+          <input
+            type="number"
+            value={minPrice}
+            onChange={(e) => setMinPrice(parseFloat(e.target.value))}
+          />
         </label>
         <label>
           Max Price:
-          <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(parseFloat(e.target.value))} />
+          <input
+            type="number"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(parseFloat(e.target.value))}
+          />
         </label>
         <label>
           Page Size:
-          <input type="number" value={pageSize} onChange={(e) => setPageSize(parseInt(e.target.value))} />
+          <input
+            type="number"
+            value={pageSize}
+            onChange={(e) => setPageSize(parseInt(e.target.value))}
+          />
         </label>
         <button onClick={handleSearch}>Search</button>
       </div>
