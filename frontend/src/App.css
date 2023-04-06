@@ -4,3 +4,10 @@
   gap: 10px;
   padding-bottom: 20px;
 }
+
+.load-more {
+  margin-bottom: 20px;
+}
+.load-more p {
+  padding: 0px;
+}
