@@ -16,9 +16,8 @@ function App() {
     variables: { page, pageSize, artistName, genreName, minPrice, maxPrice },
     skip: true,
   });
-  console.log(tracks);
+
   const handleSearch = async () => {
-    console.log(123);
     setPage(1);
     const result = await refetch();
     setTracks(result?.data?.getTracks);
